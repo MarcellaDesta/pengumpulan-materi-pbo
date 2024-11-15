@@ -3,37 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belajar Constructor</title>
+    <title>Belajar Konstruktor</title>
+    <link rel ="stylesheet" href="style.css"/>  
 </head>
 <body>
-        <h1> Data User </h1>
-
+    <h1>Belajar Constructor</h1>
     <?php
-        // memanggil class user
+        // melakukan import class User
         require 'User.php';
-
-        // melakukan instansiasi class objek
-        $user = new User(2, "Elextra", "Elextra@gmail.com", "Bandung", "admin");
-
-
-        // memberi nilai/ assigment value
-        $user->id = 2;
-        $user->name = "Elextra";
-        $user->email = "Elextra@gmail.com";
-        $user->address = "Bandung";
-        $user->role = "admin";
-
-
     ?>
-    <ul>
-        <li><?php echo $user->id; ?> </li>
-        <li><?php echo $user->name; ?> </li>
-        <li><?php echo $user->email; ?> </li>
-        <li><?php echo $user->address; ?> </li>
-        <li><?php echo $user->role; ?> </li>
-       
-    </ul>
-
-    
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Alamat</th>
+                <th>Jabatan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($users as $key => $user): ?>
+                <tr>
+                    <td><?php echo $key + 1; ?></td>
+                    <td><?php echo $user->name; ?></td>
+                    <td><?php echo $user->email; ?></td>
+                    <td><?php echo $user->address; ?></td>
+                    <td><?php echo $user->role; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </body>
 </html>
